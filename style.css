@@ -248,3 +248,37 @@ background:#2196f3;
 
 
 }
+
+
+
+.link-curriculo{
+
+display:inline-block;
+
+margin-top:20px;
+
+padding:14px 30px;
+
+background:#87cefa;
+
+color:white;
+
+text-decoration:none;
+
+border-radius:25px;
+
+font-weight:bold;
+
+transition:.3s;
+
+}
+
+
+
+.link-curriculo:hover{
+
+background:#2196f3;
+
+transform:scale(1.05);
+
+}
