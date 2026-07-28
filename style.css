@@ -1,257 +1,497 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap');
+
 
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Quicksand',sans-serif;
+    font-family:'Quicksand', sans-serif;
 }
 
+
 body{
-    background:linear-gradient(180deg,#dff6ff,#bdefff,#cceeff);
+
     min-height:100vh;
+    background:linear-gradient(
+        180deg,
+        #dff7ff,
+        #b9e9ff,
+        #e8f8ff
+    );
+
     display:flex;
     justify-content:center;
     align-items:center;
-    overflow-y:auto;
+
     padding:40px;
+
+    overflow-x:hidden;
 }
 
-/* Caixa Principal */
+
+
+/* Caixa principal */
 
 .conteudo-principal{
+
     width:700px;
-    background:#ffffff;
-    padding:35px;
-    border-radius:30px;
-    box-shadow:0 15px 35px rgba(33,150,243,.25);
+
+    background:white;
+
+    padding:40px;
+
+    border-radius:35px;
+
+    box-shadow:
+    0 15px 40px rgba(0,150,255,0.25);
+
     position:relative;
+
+    z-index:2;
+
 }
+
+
 
 /* Título */
 
+
 .titulo-principal{
+
     text-align:center;
+
     color:#2196f3;
-    font-size:34px;
-    margin-bottom:30px;
+
+    font-size:36px;
+
+    margin-bottom:35px;
+
 }
 
-.titulo-principal span{
-    color:#64b5f6;
+
+.titulo-principal::after{
+
+    content:"💙";
+
+    margin-left:10px;
+
 }
 
-/* Organização */
+
+
+
+/* Organização dos botões */
+
 
 .botoes{
+
     display:flex;
+
     flex-direction:column;
+
     gap:20px;
+
 }
 
-/* Cada objetivo */
+
+
+/* Botões expansíveis */
+
 
 details{
-    background:#eef9ff;
-    border-radius:20px;
-    border:2px solid #b8e7ff;
+
+    background:#eaf8ff;
+
+    border-radius:25px;
+
+    border:3px solid #b6e5ff;
+
     overflow:hidden;
+
     transition:.3s;
+
 }
 
-details[open]{
-    box-shadow:0 10px 20px rgba(0,170,255,.15);
+
+
+details:hover{
+
+    transform:scale(1.02);
+
 }
 
-/* Botão */
+
 
 summary{
+
     list-style:none;
+
     cursor:pointer;
+
     background:#87cefa;
+
     color:white;
+
     padding:18px;
+
     font-size:20px;
+
     font-weight:bold;
-    border-radius:18px;
+
+    border-radius:20px;
+
     transition:.3s;
+
 }
+
+
 
 summary::-webkit-details-marker{
+
     display:none;
+
 }
+
+
 
 summary:hover{
-    background:#5bbdf8;
+
+    background:#4db8ff;
+
 }
+
+
 
 summary::after{
-    content:" ▼";
+
+    content:" ✨";
+
     float:right;
+
 }
 
-details[open] summary::after{
-    content:" ▲";
+
+
+
+details[open] summary{
+
+    background:#2196f3;
+
 }
 
-/* Conteúdo */
 
-details h3{
-    color:#1e88e5;
-    margin:20px;
-}
 
-details h4{
-    color:#42a5f5;
-    margin:15px 20px;
-}
 
-details p,
-details li{
+
+/* Conteúdo aberto */
+
+
+.conteudo{
+
+    padding:25px;
+
     color:#444;
-    line-height:1.7;
-    margin-left:35px;
-    margin-right:20px;
+
+    line-height:1.6;
+
 }
 
-details ul,
-details ol{
-    margin-bottom:20px;
+
+
+.conteudo h3{
+
+    color:#1976d2;
+
+    margin-bottom:15px;
+
+    text-align:center;
+
 }
+
+
+
+.conteudo h4{
+
+    color:#42a5f5;
+
+    margin-top:15px;
+
+}
+
+
+
+.conteudo ul,
+.conteudo ol{
+
+    margin-left:25px;
+
+    margin-bottom:15px;
+
+}
+
+
+
+.conteudo li{
+
+    margin-bottom:8px;
+
+}
+
+
 
 strong{
+
     color:#1565c0;
+
 }
+
+
+
+
 
 /* Nuvens */
 
+
 .nuvem{
+
     position:fixed;
+
     background:white;
+
+    width:130px;
+
+    height:50px;
+
     border-radius:50px;
+
     opacity:.8;
+
 }
+
+
 
 .nuvem::before,
 .nuvem::after{
+
     content:"";
+
     position:absolute;
+
     background:white;
+
     border-radius:50%;
+
 }
+
+
+
+.nuvem::before{
+
+    width:60px;
+
+    height:60px;
+
+    left:15px;
+
+    top:-30px;
+
+}
+
+
+
+.nuvem::after{
+
+    width:70px;
+
+    height:70px;
+
+    right:15px;
+
+    top:-35px;
+
+}
+
+
 
 .nuvem1{
-    width:120px;
-    height:45px;
-    top:60px;
+
+    top:80px;
+
     left:70px;
+
 }
 
-.nuvem1::before{
-    width:55px;
-    height:55px;
-    top:-20px;
-    left:10px;
-}
 
-.nuvem1::after{
-    width:65px;
-    height:65px;
-    top:-30px;
-    right:15px;
-}
 
 .nuvem2{
-    width:140px;
-    height:50px;
-    right:80px;
+
     bottom:80px;
+
+    right:70px;
+
 }
 
-.nuvem2::before{
-    width:60px;
-    height:60px;
-    left:15px;
-    top:-25px;
-}
 
-.nuvem2::after{
-    width:70px;
-    height:70px;
-    right:15px;
-    top:-35px;
-}
+
+
+
 
 /* Estrelas */
 
+
 .estrela{
+
     position:fixed;
-    color:#7ec8ff;
-    font-size:28px;
-    animation:piscar 2s infinite alternate;
+
+    color:#4db8ff;
+
+    font-size:35px;
+
+    animation:brilhar 2s infinite alternate;
+
 }
+
+
 
 .estrela1{
-    top:100px;
+
+    top:120px;
+
     right:150px;
+
 }
+
+
 
 .estrela2{
-    bottom:120px;
-    left:120px;
+
+    bottom:150px;
+
+    left:150px;
+
 }
 
-@keyframes piscar{
+
+
+@keyframes brilhar{
+
 
     from{
-        opacity:.3;
-        transform:scale(.8) rotate(0deg);
+
+        transform:scale(.7);
+
+        opacity:.4;
+
     }
+
 
     to{
+
+        transform:scale(1.3);
+
         opacity:1;
-        transform:scale(1.3) rotate(25deg);
+
     }
 
+
 }
 
-/* Coração */
+
+
+
+
+
+/* Corações */
+
 
 .coracao{
+
     position:fixed;
-    top:40px;
+
+    top:50px;
+
     right:60px;
-    font-size:40px;
-    animation:flutuar 3s infinite ease-in-out;
+
+    font-size:45px;
+
+    animation:flutuar 3s infinite;
+
 }
+
+
+
+.coracao2{
+
+    position:fixed;
+
+    bottom:70px;
+
+    right:130px;
+
+    color:#7ec8ff;
+
+    font-size:55px;
+
+}
+
+
+
+
 
 @keyframes flutuar{
 
+
     0%{
+
         transform:translateY(0);
+
     }
+
 
     50%{
-        transform:translateY(-15px);
+
+        transform:translateY(-20px);
+
     }
+
 
     100%{
+
         transform:translateY(0);
+
     }
 
+
 }
+
+
+
+
+
 
 /* Barra de rolagem */
 
+
 ::-webkit-scrollbar{
-    width:10px;
+
+    width:12px;
+
 }
+
+
 
 ::-webkit-scrollbar-thumb{
+
     background:#87cefa;
+
     border-radius:20px;
+
 }
 
+
+
 ::-webkit-scrollbar-track{
-    background:#eef9ff;
+
+    background:#eaf8ff;
+
 }
