@@ -1,61 +1,178 @@
-@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
 
-:root {
-    --cor-de-fundo: #1E1E1E;
-    --verde: #6FFF57;
-    --branco: #FFFFFF;
-    --botao-ativo: #3A375E;
-    --botao-inativo: rgba(58, 55, 94, 0.5);
-    --texto-fundo: rgba(58, 55, 94, 0.3);
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Quicksand',sans-serif;
 }
 
-body {
-    background-color: var(--cor-de-fundo);
-    color: var(--branco);
-    font-family: 'Chakra Petch', sans-serif;
+body{
+    background:linear-gradient(180deg,#dff6ff,#bdefff,#cceeff);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
 }
 
+/* Caixa principal */
 
-.conteudo-principal {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    max-width: 1200px;
-    width: 100%;
-    margin: 0 auto;
+.conteudo-principal{
+    background:white;
+    width:500px;
+    padding:40px;
+    border-radius:30px;
+    box-shadow:0 15px 35px rgba(0,170,255,.25);
+    text-align:center;
+    position:relative;
+    z-index:2;
 }
 
-.titulo-principal {
-    text-align: left;
-    width: 100%;
-    font-size: 32px;
+/* Título */
+
+.titulo-principal{
+    color:#2196f3;
+    font-size:34px;
+    margin-bottom:30px;
 }
 
-.titulo-principal span {
-    color: var(--verde);
+.titulo-principal span{
+    color:#64b5f6;
 }
 
-.botao {
-    font-family: "Chakra Petch", sans-serif;
-    background-color: var(--botao-inativo);
-    color: var(--branco);
-    display: flex;
-    justify-content: center;
-    padding: 1em;
-    font-size: 18px;
-    align-items: center;
-    width: 100%;
-    border-bottom: 4px solid var(--botao-ativo);
-    border-left: 2px solid var(--botao-ativo);
-    border-right: 2px solid var(--botao-ativo);
-    border-top: none;
+/* Botões */
+
+.botoes{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
 }
 
-.botao:first-child {
-    border-radius: 40px 40px 0 0;
+.botao{
+    background:#87cefa;
+    color:white;
+    border:none;
+    padding:16px;
+    border-radius:20px;
+    font-size:18px;
+    cursor:pointer;
+    transition:.3s;
+    box-shadow:0 6px 15px rgba(33,150,243,.3);
 }
 
-.botoes {
-    display: block;
+.botao:hover{
+    background:#5bbdf8;
+    transform:translateY(-4px) scale(1.03);
+}
+
+/* Nuvens */
+
+.nuvem{
+    position:absolute;
+    background:white;
+    border-radius:50px;
+}
+
+.nuvem::before,
+.nuvem::after{
+    content:"";
+    position:absolute;
+    background:white;
+    border-radius:50%;
+}
+
+.nuvem1{
+    width:120px;
+    height:45px;
+    top:60px;
+    left:80px;
+}
+
+.nuvem1::before{
+    width:55px;
+    height:55px;
+    left:10px;
+    top:-25px;
+}
+
+.nuvem1::after{
+    width:65px;
+    height:65px;
+    right:15px;
+    top:-30px;
+}
+
+.nuvem2{
+    width:140px;
+    height:50px;
+    bottom:70px;
+    right:70px;
+}
+
+.nuvem2::before{
+    width:60px;
+    height:60px;
+    left:15px;
+    top:-28px;
+}
+
+.nuvem2::after{
+    width:70px;
+    height:70px;
+    right:15px;
+    top:-35px;
+}
+
+/* Estrelas */
+
+.estrela{
+    position:absolute;
+    color:#7ec8ff;
+    font-size:28px;
+    animation:piscar 2s infinite alternate;
+}
+
+.estrela1{
+    top:120px;
+    right:150px;
+}
+
+.estrela2{
+    bottom:120px;
+    left:130px;
+}
+
+@keyframes piscar{
+    from{
+        opacity:.4;
+        transform:scale(.8);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1.2);
+    }
+}
+
+/* Coração */
+
+.coracao{
+    position:absolute;
+    top:50px;
+    right:60px;
+    font-size:40px;
+    animation:flutuar 3s infinite ease-in-out;
+}
+
+@keyframes flutuar{
+    0%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-15px);
+    }
+    100%{
+        transform:translateY(0);
+    }
 }
