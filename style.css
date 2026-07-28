@@ -13,25 +13,25 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
-    overflow:hidden;
+    overflow-y:auto;
+    padding:40px;
 }
 
-/* Caixa principal */
+/* Caixa Principal */
 
 .conteudo-principal{
-    background:white;
-    width:500px;
-    padding:40px;
+    width:700px;
+    background:#ffffff;
+    padding:35px;
     border-radius:30px;
-    box-shadow:0 15px 35px rgba(0,170,255,.25);
-    text-align:center;
+    box-shadow:0 15px 35px rgba(33,150,243,.25);
     position:relative;
-    z-index:2;
 }
 
 /* Título */
 
 .titulo-principal{
+    text-align:center;
     color:#2196f3;
     font-size:34px;
     margin-bottom:30px;
@@ -41,37 +41,95 @@ body{
     color:#64b5f6;
 }
 
-/* Botões */
+/* Organização */
 
 .botoes{
     display:flex;
     flex-direction:column;
-    gap:18px;
+    gap:20px;
 }
 
-.botao{
+/* Cada objetivo */
+
+details{
+    background:#eef9ff;
+    border-radius:20px;
+    border:2px solid #b8e7ff;
+    overflow:hidden;
+    transition:.3s;
+}
+
+details[open]{
+    box-shadow:0 10px 20px rgba(0,170,255,.15);
+}
+
+/* Botão */
+
+summary{
+    list-style:none;
+    cursor:pointer;
     background:#87cefa;
     color:white;
-    border:none;
-    padding:16px;
-    border-radius:20px;
-    font-size:18px;
-    cursor:pointer;
+    padding:18px;
+    font-size:20px;
+    font-weight:bold;
+    border-radius:18px;
     transition:.3s;
-    box-shadow:0 6px 15px rgba(33,150,243,.3);
 }
 
-.botao:hover{
+summary::-webkit-details-marker{
+    display:none;
+}
+
+summary:hover{
     background:#5bbdf8;
-    transform:translateY(-4px) scale(1.03);
+}
+
+summary::after{
+    content:" ▼";
+    float:right;
+}
+
+details[open] summary::after{
+    content:" ▲";
+}
+
+/* Conteúdo */
+
+details h3{
+    color:#1e88e5;
+    margin:20px;
+}
+
+details h4{
+    color:#42a5f5;
+    margin:15px 20px;
+}
+
+details p,
+details li{
+    color:#444;
+    line-height:1.7;
+    margin-left:35px;
+    margin-right:20px;
+}
+
+details ul,
+details ol{
+    margin-bottom:20px;
+}
+
+strong{
+    color:#1565c0;
 }
 
 /* Nuvens */
 
 .nuvem{
-    position:absolute;
+    position:fixed;
     background:white;
     border-radius:50px;
+    opacity:.8;
 }
 
 .nuvem::before,
@@ -86,35 +144,35 @@ body{
     width:120px;
     height:45px;
     top:60px;
-    left:80px;
+    left:70px;
 }
 
 .nuvem1::before{
     width:55px;
     height:55px;
+    top:-20px;
     left:10px;
-    top:-25px;
 }
 
 .nuvem1::after{
     width:65px;
     height:65px;
-    right:15px;
     top:-30px;
+    right:15px;
 }
 
 .nuvem2{
     width:140px;
     height:50px;
-    bottom:70px;
-    right:70px;
+    right:80px;
+    bottom:80px;
 }
 
 .nuvem2::before{
     width:60px;
     height:60px;
     left:15px;
-    top:-28px;
+    top:-25px;
 }
 
 .nuvem2::after{
@@ -127,52 +185,73 @@ body{
 /* Estrelas */
 
 .estrela{
-    position:absolute;
+    position:fixed;
     color:#7ec8ff;
     font-size:28px;
     animation:piscar 2s infinite alternate;
 }
 
 .estrela1{
-    top:120px;
+    top:100px;
     right:150px;
 }
 
 .estrela2{
     bottom:120px;
-    left:130px;
+    left:120px;
 }
 
 @keyframes piscar{
+
     from{
-        opacity:.4;
-        transform:scale(.8);
+        opacity:.3;
+        transform:scale(.8) rotate(0deg);
     }
 
     to{
         opacity:1;
-        transform:scale(1.2);
+        transform:scale(1.3) rotate(25deg);
     }
+
 }
 
 /* Coração */
 
 .coracao{
-    position:absolute;
-    top:50px;
+    position:fixed;
+    top:40px;
     right:60px;
     font-size:40px;
     animation:flutuar 3s infinite ease-in-out;
 }
 
 @keyframes flutuar{
+
     0%{
         transform:translateY(0);
     }
+
     50%{
         transform:translateY(-15px);
     }
+
     100%{
         transform:translateY(0);
     }
+
+}
+
+/* Barra de rolagem */
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#87cefa;
+    border-radius:20px;
+}
+
+::-webkit-scrollbar-track{
+    background:#eef9ff;
 }
